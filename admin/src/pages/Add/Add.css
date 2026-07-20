@@ -1,0 +1,137 @@
+.add {
+  padding: 30px;
+  margin-left: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add form {
+  max-width: 500px;
+  width: 100%;
+}
+
+.add-img-upload {
+  margin-bottom: 20px;
+}
+
+.add-img-upload p,
+.add-product-name p,
+.add-product-description p,
+.add-category p,
+.add-price p {
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.upload-box {
+  width: 130px;
+  height: 130px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #fafafa;
+  transition: border-color 0.3s;
+}
+
+.upload-box:hover {
+  border-color: #8B6F47;
+}
+
+.upload-box span {
+  font-size: 28px;
+}
+
+.upload-box p {
+  font-size: 12px;
+  color: #999;
+  margin-top: 5px;
+}
+
+.preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.add-product-name input,
+.add-product-description textarea,
+.add-category select,
+.add-price input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+}
+
+.add-product-name input:focus,
+.add-product-description textarea:focus,
+.add-category select:focus,
+.add-price input:focus {
+  border-color: #8B6F47;
+}
+
+.add-product-description textarea {
+  resize: vertical;
+}
+
+.add-category-price {
+  display: flex;
+  gap: 30px;
+  margin: 15px 0;
+}
+
+.add-category, .add-price {
+  flex: 1;
+}
+
+.add-btn {
+  width: 150px;
+  padding: 14px;
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.add-btn:hover {
+  background-color: #8B6F47;
+}
+
+@media (max-width: 768px) {
+  .add {
+    padding: 20px 15px;
+  }
+
+  .add form {
+    max-width: 100%;
+  }
+
+  .upload-box {
+    width: 110px;
+    height: 110px;
+  }
+
+  .add-btn {
+    width: 100%;
+  }
+}
