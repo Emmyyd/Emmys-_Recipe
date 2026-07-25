@@ -11,7 +11,7 @@ const StoreContextProvider = (props) => {
   })
   const [token, setToken] = useState(localStorage.getItem("token") || "")
   const [food_list, setFoodList] = useState(defaultFoodList)
-  const url = "http://localhost:4000"
+  const url = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000"
 
   useEffect(() => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems))
@@ -21,12 +21,10 @@ const StoreContextProvider = (props) => {
     try {
       const response = await axios.get(`${url}/api/food/list`)
       if (response.data.success && response.data.data.length > 0) {
-        // Combine backend items with default items
         setFoodList([...response.data.data, ...defaultFoodList])
       }
     } catch (error) {
       console.log("Backend unavailable, using default items")
-      // Falls back to defaultFoodList automatically
     }
   }
 
@@ -44,14 +42,11 @@ const StoreContextProvider = (props) => {
     }
   }
 
-  const removeFromCart = async (itemId) => {
+  const removeFromCart = (itemId) => {
     setCartItems(prev => ({
       ...prev,
       [itemId]: prev[itemId] - 1
     }))
-    if (token) {
-      await axios.post(url+"/api/cart/remove",{itemId},{headers:{token}})
-    }
   }
 
   const getTotalCartAmount = () => {
